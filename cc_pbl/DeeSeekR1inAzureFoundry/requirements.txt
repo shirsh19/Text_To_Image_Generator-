@@ -1,0 +1,4 @@
+install azure-ai-inference
+azure-core 
+equests 
+python-dotenv
