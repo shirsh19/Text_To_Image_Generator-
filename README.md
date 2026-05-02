@@ -1,40 +1,3 @@
----
-
-## 📌 Key Features
-
-*   **GCP Integration:** Uses Google Cloud keys to authenticate and authorize AI generation requests.
-*   **Prompt Engineering:** Optimized for sending descriptive text to Gemini for high-fidelity visual output.
-*   **VS Code Optimized:** Tailored for a lightweight, efficient development workflow in Visual Studio Code.
-
----
-
-## ⚙️ How to Reproduce
-
-*   **Step 1: Clone the Repository**
-    ```bash
-    git clone [https://github.com/shirsh19/Text_To_Image_Generator-](https://github.com/shirsh19/Text_To_Image_Generator-)
-    ```
-*   **Step 2: Environment Setup**
-    *   Create a virtual environment and install `requirements.txt`.
-*   **Step 3: GCP Authentication**
-    *   Place your **GCP API Key** or **Service Account JSON** in the root directory (ensure it's listed in `.gitignore`).
-*   **Step 4: Execute**
-    ```bash
-Based on your repository structure and the fact that you are using **GCP** with **VS Code**, this YAML error is likely occurring in a configuration file like `app.yaml`, `cloudbuild.yaml`, or a `.github/workflows` file.
-
-The error `did not find expected alphabetic or numeric character while scanning an alias` usually happens because YAML interprets an asterisk (`*`) or an ampersand (`&`) as a special character (an alias or an anchor) rather than a string.
-
-### 🛠️ Common Fixes for this Error
-
-*   **Wrap values in quotes:** If you have a line like `password: *something` or `pattern: *.py`, YAML thinks `*` is the start of an alias. Change it to:
-    ```yaml
-    pattern: "*.py" 
-    ```
-*   **Check for invalid characters:** Ensure there are no hidden special characters or incorrect indentation at line 3.
-*   **GCP Keys in YAML:** If you are pasting a GCP service account key or API key directly into a YAML file (which is not recommended), ensure the entire block is properly indented and quoted if it contains special characters.
-
----
-
 # 🖼️ Text to Image Generator (Backend)
 
 [![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)](https://www.python.org/)
@@ -57,17 +20,17 @@ The error `did not find expected alphabetic or numeric character while scanning 
 
 This repository focuses on an automated image generation pipeline. By utilizing **GCP** infrastructure, the system performs complex generative tasks without requiring heavy local resources.
 
-*   **Cloud-First AI:** Connects Google’s Generative AI models to a local development environment in VS Code.
-*   **Scalable Architecture:** Designed for prompt-to-image workflows using cloud-based inference.
+- **Cloud-First AI:** Connects Google’s Generative AI models to a local development environment in VS Code.
+- **Scalable Architecture:** Designed for prompt-to-image workflows using cloud-based inference.
 
 ---
 
 ## 🛠️ Tech Stack
 
-*   **Development Environment:** `VS Code`
-*   **Cloud Platform:** `Google Cloud Platform (GCP)`
-*   **AI Model:** `Gemini API` (for text-to-image generation)
-*   **Language:** `Python`
+- **Development Environment:** `VS Code`
+- **Cloud Platform:** `Google Cloud Platform (GCP)`
+- **AI Model:** `Gemini API` (for text-to-image generation)
+- **Language:** `Python`
 
 ---
 
