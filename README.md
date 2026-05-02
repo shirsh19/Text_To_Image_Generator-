@@ -2,54 +2,36 @@
 
 ## 📌 Key Features
 
-* **Cloud-Native Generation:** Offloads the heavy lifting of image creation to GCP, ensuring fast results regardless of your local hardware.
-* **API Key Management:** Securely handles GCP/Gemini credentials to authenticate requests.
-* **VS Code Optimized:** Includes configuration files for a seamless "Plug and Play" experience in Visual Studio Code.
-* **High-Fidelity Output:** Leverages the latest Gemini models for high-quality, prompt-accurate visuals.
+*   **GCP Integration:** Uses Google Cloud keys to authenticate and authorize AI generation requests.
+*   **Prompt Engineering:** Optimized for sending descriptive text to Gemini for high-fidelity visual output.
+*   **VS Code Optimized:** Tailored for a lightweight, efficient development workflow in Visual Studio Code.
 
 ---
 
 ## ⚙️ How to Reproduce
 
-Follow these steps to set up the environment and run the generator:
-
-* **Step 1: Clone the Repository**
+*   **Step 1: Clone the Repository**
     ```bash
     git clone [https://github.com/shirsh19/Text_To_Image_Generator-](https://github.com/shirsh19/Text_To_Image_Generator-)
-    cd Text_To_Image_Generator-
     ```
-
-* **Step 2: Set Up Virtual Environment**
+*   **Step 2: Environment Setup**
+    *   Create a virtual environment and install `requirements.txt`.
+*   **Step 3: GCP Authentication**
+    *   Place your **GCP API Key** or **Service Account JSON** in the root directory (ensure it's listed in `.gitignore`).
+*   **Step 4: Execute**
     ```bash
-    python -m venv venv
-    # Activate on Windows:
-    .\venv\Scripts\activate
-    # Activate on Mac/Linux:
-    source venv/bin/activate
+Based on your repository structure and the fact that you are using **GCP** with **VS Code**, this YAML error is likely occurring in a configuration file like `app.yaml`, `cloudbuild.yaml`, or a `.github/workflows` file.
+
+The error `did not find expected alphabetic or numeric character while scanning an alias` usually happens because YAML interprets an asterisk (`*`) or an ampersand (`&`) as a special character (an alias or an anchor) rather than a string.
+
+### 🛠️ Common Fixes for this Error
+
+*   **Wrap values in quotes:** If you have a line like `password: *something` or `pattern: *.py`, YAML thinks `*` is the start of an alias. Change it to:
+    ```yaml
+    pattern: "*.py" 
     ```
-
-* **Step 3: Install Dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
-
-* **Step 4: Configure GCP Key**
-  1. Obtain your key from the **Google Cloud Console** or **Google AI Studio**.
-  2. Create a `.env` file in the root directory.
-  3. Add your key:
-     ```ini
-     GCP_API_KEY=your_key_here
-     ```
-
-* **Step 5: Run the Script**
-    ```bash
-    python main.py
-    ```
-
----
-*If you find this project usefulMy mistake—I'll strip out the Flutter and AWS references entirely and pivot the focus to a pure **GCP-integrated backend** managed in **VS Code**. 
-
-Since you're using a key from Google Cloud but aren't certain which one, it is highly likely the **Gemini API Key** (managed via Google AI Studio/Vertex AI) or a **Service Account Key** for cloud storage or vision tasks. I've updated the setup to reflect that ambiguity.
+*   **Check for invalid characters:** Ensure there are no hidden special characters or incorrect indentation at line 3.
+*   **GCP Keys in YAML:** If you are pasting a GCP service account key or API key directly into a YAML file (which is not recommended), ensure the entire block is properly indented and quoted if it contains special characters.
 
 ---
 
@@ -60,7 +42,7 @@ Since you're using a key from Google Cloud but aren't certain which one, it is h
 [![VS Code](https://img.shields.io/badge/Visual_Studio_Code-007ACC?style=flat&logo=visual-studio-code&logoColor=white)](https://code.visualstudio.com/)
 [![Gemini](https://img.shields.io/badge/Gemini-Pro-8E75B2.svg)](https://ai.google.dev/)
 
-> **A robust backend system developed in VS Code that leverages Google Cloud Platform (GCP) and Gemini models to transform text descriptions into AI-generated imagery.**
+> **A backend system developed in VS Code that leverages Google Cloud Platform (GCP) and the Gemini API to transform text prompts into AI-generated imagery.**
 
 ## 📑 Table of Contents
 - [🎯 Project Purpose](#-project-purpose)
@@ -73,29 +55,26 @@ Since you're using a key from Google Cloud but aren't certain which one, it is h
 
 ## 🎯 Project Purpose
 
-This repository contains the logic for an automated image generation pipeline. By utilizing Google Cloud's infrastructure, the system can handle complex generative tasks that would typically require heavy local GPU resources.
+This repository focuses on an automated image generation pipeline. By utilizing **GCP** infrastructure, the system performs complex generative tasks without requiring heavy local resources.
 
-* **Effortless Integration:** Seamlessly connects Google’s Generative AI with a local development environment.
-* **Scalable AI:** Built to handle prompt-to-image workflows using cloud-based inference.
+*   **Cloud-First AI:** Connects Google’s Generative AI models to a local development environment in VS Code.
+*   **Scalable Architecture:** Designed for prompt-to-image workflows using cloud-based inference.
 
 ---
 
 ## 🛠️ Tech Stack
 
-This project is built using a streamlined Python environment optimized for cloud service interaction.
-
-* **Development Environment:** `VS Code`
-* **Cloud Platform:** `Google Cloud Platform (GCP)`
-* **AI Model:** `Gemini API` (for text processing and image generation)
-* **Language:** `Python`
+*   **Development Environment:** `VS Code`
+*   **Cloud Platform:** `Google Cloud Platform (GCP)`
+*   **AI Model:** `Gemini API` (for text-to-image generation)
+*   **Language:** `Python`
 
 ---
 
 ## 📂 Repository Structure
 ```text
 cc_pbl/
-├── main.py             # Core script for API calls and logic
-├── gcp_config.py       # Configuration for GCP authentication
-├── requirements.txt    # Necessary Python libraries
-├── .env.example        # Template for your GCP/Gemini keys
-└── README.md           # Project documentation
+├── main.py             # Core script for API calls and logic
+├── gcp_config.py       # GCP authentication and key management
+├── requirements.txt    # Python dependencies
+└── README.md           # Project documentation
